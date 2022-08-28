@@ -1,0 +1,27 @@
+<div class="general" [ngClass]="pokemonType(data.pokemon.types[0].type.name)">
+  <h1 mat-dialog-title>{{data.pokemon.name}}</h1>
+  <h3 class="type">
+    {{data.pokemon.types[0].type.name}}
+  </h3>
+  <mat-dialog-content>
+    <div>
+      <img src="{{data.pokemon.sprites.front_default}}">
+    </div>
+    <h3>Abilities</h3>
+    <div class="moves" >
+      <span class="move" *ngFor="let move of pokemonMoves">
+        {{move}}
+      </span>
+    </div>
+    <div class="box" ng-click="stats={display='grid'}">
+      <h3>Stats</h3>
+      <div class="stats">
+        <div class="mt-5 mb-5" *ngFor="let stat of pokemonStats">
+          <span class="stat"> {{stat.stat.name}}</span><br>
+          {{stat.base_stat}}
+        </div>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+</div>
